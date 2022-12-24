@@ -1,0 +1,5 @@
+1. Wire up a raspberry pi to act as the host
+2. Shock absorbing legs to prevent the pieces from moving due to vibrations
+3. Put up a good display for the raspberry pi with touchscreen to replace the stupid knob and the awful lcd
+4. Make the squares have alternating colors
+5. Add led strip lighting to the inner border of the board to illuminate it and help eliminate false triggers caused due to long shadows

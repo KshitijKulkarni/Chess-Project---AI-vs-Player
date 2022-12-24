@@ -1,0 +1,3 @@
+2) Fine tune the location and coordinates of the carriage
+3) Add a procedure to recover from illegal moves
+4) Be able to retake the reference frame in case of a foreign object in the shot
