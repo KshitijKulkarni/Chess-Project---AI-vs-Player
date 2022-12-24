@@ -3,7 +3,6 @@ import chess
 from pathfinding.core.diagonal_movement import DiagonalMovement
 from pathfinding.core.grid import Grid
 from pathfinding.finder.a_star import AStarFinder
-from goto import goto, comefrom, label
 
 def ChessboardToMatrix(ChessboardInput: chess.Board):
     Chessboard = ChessboardInput
@@ -43,22 +42,41 @@ def FindPath(Square, Chessboard, move: chess.Move):
     shortestPath = [0 for x in range(131)]
     shortestEndIndex = 0
     diagMovt: DiagonalMovement = DiagonalMovement.never
-    ScanFor
     for i in range(8):
         start = grid.node(Square[0], Square[1])
         end = grid.node(0, i)
-        finder = AStarFinder(diagonal_movement=DiagonalMovement.never)
+        finder = AStarFinder(diagonal_movement=diagMovt)
         path, runs = finder.find_path(start, end, grid)
+        path = SimplifyPath(path)
         grid.cleanup()
         if(len(path) > 0):
             if(len(path) < len(shortestPath)):
                 shortestPath = path
                 shortestEndIndex = i
-    print(Chessboard)
-    print(shortestPath)
-    print(grid.grid_str(path=shortestPath, start=start, end=grid.node(7, shortestEndIndex)))
-    return SimplifyPath(shortestPath)
     
-    if len(shortestPath) == 131:
-        print("No Path Found")
-        return None
+    if len(shortestPath) == 131: #No Straight path was found
+        print("ScanningDiagonally")
+        diagMovt = DiagonalMovement.always
+        for i in range(8):
+            start = grid.node(Square[0], Square[1])
+            end = grid.node(0, i)
+            finder = AStarFinder(diagonal_movement=diagMovt)
+            path, runs = finder.find_path(start, end, grid)
+            path = SimplifyPath(path)
+            grid.cleanup()
+            if(len(path) > 0):
+                if(len(path) < len(shortestPath)):
+                    shortestPath = path
+                    shortestEndIndex = i
+        if len(shortestPath) == 131:
+            print("NoPathFound")
+        else:
+            print(Chessboard)
+            print(shortestPath)
+            print(grid.grid_str(path=shortestPath, start=start, end=grid.node(0, shortestEndIndex)))
+            return shortestPath
+    else:
+        print(Chessboard)
+        print(shortestPath)
+        print(grid.grid_str(path=shortestPath, start=start, end=grid.node(0, shortestEndIndex)))
+        return shortestPath
