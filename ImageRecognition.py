@@ -120,7 +120,7 @@ def StoreRefFrame():
     return frame
     # return frame
 
-#region Companion Functions
+#endregion
 def SubtractImages(image1, image2):
     #convert each image to grayscale
     image1 = cv.cvtColor(image1, cv.COLOR_BGR2GRAY)
@@ -161,7 +161,6 @@ def FindDifference(image):
     return (Square1, Square2)
 
 
-#endregion
 def OnUserPlayed(OldFrame):
     global cap
     frame = cap.read()
@@ -175,6 +174,7 @@ def OnUserPlayed(OldFrame):
     frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
     frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
     frame = cv.flip(frame, 1)
+    frame = cv.flip(frame, 0)
     ret, frame = cv.threshold(frame, 10, 255, cv.THRESH_BINARY)
     waitKey(1)
     frame = cv.resize(frame, (8,8))
