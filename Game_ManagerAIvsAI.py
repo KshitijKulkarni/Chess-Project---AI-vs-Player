@@ -85,6 +85,7 @@ def MoveAI():
     else:
         print(result.uci())
         MT.UCI2Motor(result.uci())
+        print("Continuing")
     chessboard.push(result)
     print(chessboard.fen())
     MoveAI()

@@ -173,7 +173,7 @@ def OnUserPlayed(OldFrame):
     frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
     frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
     frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
-    frame = cv.flip(frame, 1)
+    # frame = cv.flip(frame, 1)
     frame = cv.flip(frame, 0)
     ret, frame = cv.threshold(frame, 10, 255, cv.THRESH_BINARY)
     waitKey(1)

@@ -8,7 +8,7 @@ def mapVal(x, in_min, in_max, out_min, out_max):
     return int((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
 
 a1Pos = (1450,0)
-a8Pos = (1450,1450)
+a8Pos = (1400,1450)
 h1Pos = (0,0)
 h8Pos = (0,1450)
 

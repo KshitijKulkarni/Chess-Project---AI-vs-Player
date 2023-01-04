@@ -24,5 +24,6 @@ def WaitForCallback():
     while (ser.readline().decode().strip()) != "Done":
         sleep(1)
     print("Motor Movement Completed")
+    return
     
 
