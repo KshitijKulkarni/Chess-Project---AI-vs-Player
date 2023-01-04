@@ -1,3 +1,9 @@
+###VERY IMPORTANT!:
+#Select  the corners of the board ONLY in the following norder
+#1. H1 or White Right Rook, White POV
+#2. A1 or White Left Rook, White POV
+#3. H8 or Black Left Rook, Black POV
+#4. A8 or Black Right Roook, Black POV
 from multiprocessing import Event
 import string
 import time
