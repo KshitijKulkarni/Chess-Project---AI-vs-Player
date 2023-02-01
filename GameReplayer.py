@@ -30,7 +30,7 @@ def Move(result):
     elif chessboard.is_checkmate():
         print("Check Mate!")
         MT.UCI2Motor(result.uci())
-    elif chessboard.is_into_check(result):
+    elif chessboard.is_into_check(result): 
         isUnderCheck = True
         MT.UCI2Motor(result.uci())
     elif chessboard.is_into_check(result) and chessboard.is_capture(result):
