@@ -8,6 +8,8 @@ import chess.pgn
 import chess.engine
 import cv2 as cv
 import numpy
+import os
+from datetime import datetime
 
 def Start(skill):
     global chessboard, engine
@@ -26,6 +28,8 @@ def Start(skill):
     USB_Com_Utils.Home()
     print("Homed")
 
+    ClearFile()
+    WriteMoveToFile("Game: Difficulty-" + str(skill) + ", "+ datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     # gui.app.button_1.configure(command=lambda: OnUserConfirmMove())
     # gui.app.button_2.configure(command=lambda: ReTakePicture())
 
@@ -44,6 +48,7 @@ def OnUserPlayed():
     result, move, uciName = MT.Ind2UCI(Squares, chessboard)
     if result == 1:
         print("Valid Move: " + uciName)
+        WriteMoveToFile(move.uci())
         chessboard.push(move)
         Checked = MoveAI()
         IR.GetRefFrame()
@@ -74,6 +79,9 @@ def WriteToFile():
 def WriteMoveToFile(move):
     with open("game.txt", "a") as f:
         f.write(move+"\n")
+
+def ClearFile():
+    os.remove("game.txt")
 
 def MoveAI():
     global chessboard, engine

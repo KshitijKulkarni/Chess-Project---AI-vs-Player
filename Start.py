@@ -163,3 +163,7 @@ ui.Start_Button.clicked.connect(StartGame)
 #Set the mainwindow to fullscreen
 MainWindow.showFullScreen()
 sys.exit(app.exec_())
+
+
+
+
