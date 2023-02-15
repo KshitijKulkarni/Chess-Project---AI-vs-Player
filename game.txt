@@ -1,22 +1,4 @@
-Game: Difficulty-1, 2023-02-01 16:08:18
-d2d4
-h7h6
-c2c4
-h6h5
-h2h3
-h5h4
+Game: Difficulty-1, 2023-02-15 17:40:17
 e2e4
-h8h5
-f1e2
-h5a5
+h7h6
 b1c3
-g8f6
-e4e5
-f6g8
-b2b4
-g8h6
-b4a5
-h6g4
-a1b1
-g4e3
-f2e3
