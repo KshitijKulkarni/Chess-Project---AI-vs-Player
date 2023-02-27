@@ -3,13 +3,13 @@ import socket
 def NewMatch():
     print("New match started")
 
-def Start(skill):
+def Start():
     global Game_Manager
     # print("Starting with skill: " + str(skill))
     import time
     time.sleep(5)
     import Game_Manager
-    Game_Manager.Start(skill)
+    Game_Manager.Start()
 
 InvalidMove = False;
 
@@ -42,7 +42,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if not data:
                 break
             if data[:5] == "Start":
-                Start(int(subtract(data, data[:5])))
+                Start()
             elif data[:7] == "Confirm":
                 conn.send(str(ConfirmMove()).encode())
             elif data[:3] == "RRF":
