@@ -8,7 +8,7 @@ def Start():
     # print("Starting with skill: " + str(skill))
     import time
     time.sleep(5)
-    import Game_Manager
+    import OnlineGameManager as Game_Manager
     Game_Manager.Start()
 
 InvalidMove = False;
